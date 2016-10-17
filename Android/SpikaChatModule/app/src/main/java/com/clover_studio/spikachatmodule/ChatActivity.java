@@ -279,7 +279,7 @@ public class ChatActivity extends BaseActivity {
         rvMessages.setAdapter(new MessageRecyclerViewAdapter(new ArrayList<Message>(), activeUser));
         ((MessageRecyclerViewAdapter) rvMessages.getAdapter()).setLastItemListener(onLastItemAndClickItemListener);
 
-        setToolbarTitle(activeUser.roomID);
+        setToolbarTitle(activeUser.roomTitle != null ? activeUser.roomTitle : activeUser.roomID);
 
         findViewById(R.id.viewForSettingBehind).setOnClickListener(new View.OnClickListener() {
             @Override

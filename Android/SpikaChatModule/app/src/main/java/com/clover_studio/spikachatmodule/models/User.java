@@ -14,6 +14,7 @@ public class User extends BaseModel implements Parcelable{
     public String name;
     public String avatarURL;
     public String roomID;
+    public String roomTitle;
     public String pushToken;
 
     @Override
@@ -23,6 +24,7 @@ public class User extends BaseModel implements Parcelable{
                 ", name='" + name + '\'' +
                 ", avatarURL='" + avatarURL + '\'' +
                 ", roomID='" + roomID + '\'' +
+                ", roomTitle='" + roomTitle + '\'' +
                 ", pushToken='" + pushToken + '\'' +
                 '}';
     }
@@ -51,6 +53,7 @@ public class User extends BaseModel implements Parcelable{
         result = 31 * result + (name != null ? name.hashCode() : 0);
         result = 31 * result + (avatarURL != null ? avatarURL.hashCode() : 0);
         result = 31 * result + (roomID != null ? roomID.hashCode() : 0);
+        result = 31 * result + (roomTitle != null ? roomTitle.hashCode() : 0);
         result = 31 * result + (pushToken != null ? pushToken.hashCode() : 0);
         return result;
     }
@@ -61,6 +64,7 @@ public class User extends BaseModel implements Parcelable{
         dest.writeString(this.name);
         dest.writeString(this.avatarURL);
         dest.writeString(this.roomID);
+        dest.writeString(this.roomTitle);
         dest.writeString(this.pushToken);
     }
 
@@ -72,6 +76,7 @@ public class User extends BaseModel implements Parcelable{
         this.name = in.readString();
         this.avatarURL = in.readString();
         this.roomID = in.readString();
+        this.roomTitle = in.readString();
         this.pushToken = in.readString();
     }
 
