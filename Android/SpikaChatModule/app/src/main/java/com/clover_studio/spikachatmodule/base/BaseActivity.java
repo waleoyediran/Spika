@@ -133,10 +133,6 @@ public class BaseActivity extends AppCompatActivity {
         });
     }
 
-    protected void onSettingsButtonClickListener(View.OnClickListener listener){
-        ImageButton settings = (ImageButton) toolbar.findViewById(R.id.settings);
-        settings.setOnClickListener(listener);
-    }
 
     /**
      * change color of toolbar

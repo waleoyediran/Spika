@@ -106,7 +106,7 @@ public class ChatActivity extends BaseActivity {
 
     private User activeUser;
 
-    private ListView settingsListView;
+//    private ListView settingsListView;
     protected RecyclerView rvMessages;
     protected TextView tvTyping;
 
@@ -216,23 +216,13 @@ public class ChatActivity extends BaseActivity {
 
         setToolbar(R.id.tToolbar, R.layout.custom_chat_toolbar);
         setMenuLikeBack();
-        onSettingsButtonClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                onSettingsClicked();
-            }
-        });
+
 
         rvMessages = (RecyclerView) findViewById(R.id.rvMain);
         LinearLayoutManager llm = new LinearLayoutManager(this);
         llm.setStackFromEnd(true);
         rvMessages.setLayoutManager(llm);
 
-        settingsListView = (ListView) findViewById(R.id.settings_list_view);
-        SettingsAdapter adapter = new SettingsAdapter(this);
-        settingsListView.setAdapter(adapter);
-        adapter.setSettings();
-        settingsListView.setOnItemClickListener(onSettingItemClick);
 
         btnSend = (ImageButton) findViewById(R.id.btnSend);
         pbAboveSend = (ProgressBar) findViewById(R.id.loadingAboveSendButton);
@@ -274,19 +264,12 @@ public class ChatActivity extends BaseActivity {
             }
         }
 
-        tvTyping.setText(activeUser.userID);
+//        tvTyping.setText(activeUser.userID);
 
         rvMessages.setAdapter(new MessageRecyclerViewAdapter(new ArrayList<Message>(), activeUser));
         ((MessageRecyclerViewAdapter) rvMessages.getAdapter()).setLastItemListener(onLastItemAndClickItemListener);
 
         setToolbarTitle(activeUser.roomTitle != null ? activeUser.roomTitle : activeUser.roomID);
-
-        findViewById(R.id.viewForSettingBehind).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                hideSettings();
-            }
-        });
 
         findViewById(R.id.viewForMenuBehind).setOnClickListener(new View.OnClickListener() {
             @Override
@@ -469,17 +452,6 @@ public class ChatActivity extends BaseActivity {
                 requestContacts();
             }
             onButtonMenuOpenedClicked();
-        }
-    };
-
-    private AdapterView.OnItemClickListener onSettingItemClick = new AdapterView.OnItemClickListener() {
-        @Override
-        public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-            if (position == 0) {
-                forceStaySocket = true;
-                UsersInChatActivity.starUsersInChatActivity(getActivity(), activeUser.roomID);
-            }
-            hideSettings();
         }
     };
 
@@ -842,33 +814,6 @@ public class ChatActivity extends BaseActivity {
         sendMessage();
     }
 
-    private void showSettings() {
-        settingsListView.setVisibility(View.VISIBLE);
-        AnimUtils.fade(settingsListView, 0, 1, 300, null);
-        findViewById(R.id.viewForSettingBehind).setVisibility(View.VISIBLE);
-        AnimUtils.fade(findViewById(R.id.viewForSettingBehind), 0, 1, 300, null);
-    }
-
-    private void hideSettings() {
-        AnimUtils.fade(settingsListView, 1, 0, 300, new AnimatorListenerAdapter() {
-            @Override
-            public void onAnimationEnd(Animator animation) {
-                super.onAnimationEnd(animation);
-                settingsListView.setVisibility(View.INVISIBLE);
-                findViewById(R.id.viewForSettingBehind).setVisibility(View.GONE);
-            }
-        });
-        AnimUtils.fade(findViewById(R.id.viewForSettingBehind), 1, 0, 300, null);
-    }
-
-    protected void onSettingsClicked() {
-        if (settingsListView.getVisibility() == View.VISIBLE) {
-            hideSettings();
-        } else {
-            showSettings();
-        }
-    }
-
     private void scrollRecyclerToBottom() {
         rvMessages.scrollToPosition(rvMessages.getAdapter().getItemCount() - 1);
     }
@@ -1078,7 +1023,7 @@ public class ChatActivity extends BaseActivity {
                 @Override
                 public void run() {
                     if (typingUsers.size() < 1) {
-                        tvTyping.setText(activeUser.userID);
+//                        tvTyping.setText(activeUser.userID);
                     } else {
                         generateTypingString();
                     }
@@ -1178,7 +1123,7 @@ public class ChatActivity extends BaseActivity {
                     }
 
                     if (typingUsers.size() < 1) {
-                        tvTyping.setText(activeUser.userID);
+//                        tvTyping.setText(activeUser.userID);
                     } else {
                         generateTypingString();
                     }
@@ -1317,10 +1262,6 @@ public class ChatActivity extends BaseActivity {
 
     @Override
     public void onBackPressed() {
-        if (settingsListView.getVisibility() == View.VISIBLE) {
-            hideSettings();
-            return;
-        }
         if (buttonType == ButtonType.MENU_OPENED) {
             onButtonMenuOpenedClicked();
             return;

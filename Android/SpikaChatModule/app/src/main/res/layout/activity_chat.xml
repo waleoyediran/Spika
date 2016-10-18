@@ -58,7 +58,7 @@
         android:id="@+id/tToolbar"
         android:layout_width="match_parent"
         android:layout_height="@dimen/toolbar_height"
-        android:background="@color/toolbar_color"
+        android:background="?attr/colorPrimary"
         app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
         app:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"/>
 
@@ -149,31 +149,31 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"/>
 
-    <View
-        android:id="@+id/viewForSettingBehind"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_below="@id/tToolbar"
-        android:background="@color/black_trans"
-        android:visibility="gone"/>
+    <!--<View-->
+        <!--android:id="@+id/viewForSettingBehind"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="match_parent"-->
+        <!--android:layout_below="@id/tToolbar"-->
+        <!--android:background="@color/black_trans"-->
+        <!--android:visibility="gone"/>-->
 
-    <ListView
-        android:id="@+id/settings_list_view"
-        android:layout_width="200dp"
-        android:layout_height="wrap_content"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentRight="true"
-        android:layout_below="@id/tToolbar"
-        android:animationCache="false"
-        android:background="@color/chat_settings_gray"
-        android:cacheColorHint="@color/chat_settings_gray"
-        android:divider="@color/chat_settings_separator"
-        android:dividerHeight="0.5dp"
-        android:fadingEdge="none"
-        android:listSelector="@color/gray_in_adapter"
-        android:scrollbars="vertical"
-        android:scrollingCache="false"
-        android:smoothScrollbar="true"
-        android:visibility="invisible"/>
+    <!--<ListView-->
+        <!--android:id="@+id/settings_list_view"-->
+        <!--android:layout_width="200dp"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_alignParentEnd="true"-->
+        <!--android:layout_alignParentRight="true"-->
+        <!--android:layout_below="@id/tToolbar"-->
+        <!--android:animationCache="false"-->
+        <!--android:background="@color/chat_settings_gray"-->
+        <!--android:cacheColorHint="@color/chat_settings_gray"-->
+        <!--android:divider="@color/chat_settings_separator"-->
+        <!--android:dividerHeight="0.5dp"-->
+        <!--android:fadingEdge="none"-->
+        <!--android:listSelector="@color/gray_in_adapter"-->
+        <!--android:scrollbars="vertical"-->
+        <!--android:scrollingCache="false"-->
+        <!--android:smoothScrollbar="true"-->
+        <!--android:visibility="invisible"/>-->
 
 </RelativeLayout>

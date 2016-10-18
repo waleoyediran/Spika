@@ -1,20 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
                 android:layout_width="match_parent"
-                android:layout_height="@dimen/toolbar_height"
+                android:layout_height="?attr/actionBarSize"
+                android:background="?attr/colorPrimary"
                 xmlns:app="http://schemas.android.com/apk/res-auto"
                 android:layout_centerHorizontal="true">
 
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
-
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="30dp"
-            android:layout_alignParentBottom="true"
-            android:background="@drawable/toolbar_gradient"
-            />
 
         <com.balysv.materialmenu.MaterialMenuView
             android:layout_width="wrap_content"
@@ -25,7 +19,7 @@
             android:paddingBottom="5dp"
             android:layout_centerVertical="true"
             android:background="@drawable/selector_trans_to_white"
-            app:mm_color="@color/default_color"
+            app:mm_color="@color/white"
             android:id="@+id/sidebarBtnMaterial"/>
 
         <LinearLayout
@@ -33,8 +27,8 @@
             android:layout_height="match_parent"
             android:layout_toRightOf="@id/sidebarBtnMaterial"
             android:layout_toEndOf="@id/sidebarBtnMaterial"
-            android:layout_toLeftOf="@+id/settings"
-            android:layout_toStartOf="@+id/settings"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true"
             android:gravity="center"
             android:orientation="vertical">
 
@@ -45,7 +39,7 @@
                 android:gravity="center_horizontal"
                 android:text="@string/chat"
                 android:singleLine="true"
-                android:textColor="@color/devil_gray_color"
+                android:textColor="@color/white"
                 android:textSize="@dimen/title_text_size"/>
 
             <com.clover_studio.spikachatmodule.view.CustomTextView
@@ -56,7 +50,7 @@
                 android:text=""
                 android:ellipsize="start"
                 android:singleLine="true"
-                android:textColor="@color/devil_gray_color"
+                android:textColor="@color/white"
                 android:textSize="@dimen/sub_title_text_size"/>
 
         </LinearLayout>
@@ -72,13 +66,14 @@
             android:background="@drawable/selector_trans_to_white"
             android:layout_alignParentRight="true"
             android:layout_alignParentEnd="true"
+            android:visibility="invisible"
             android:src="@drawable/ic_setting"/>
 
         <View
             android:layout_width="match_parent"
             android:layout_height="1dp"
             android:layout_alignParentBottom="true"
-            android:background="@color/gray_light_light_color"
+            android:background="?attr/colorPrimary"
             />
 
     </RelativeLayout>
